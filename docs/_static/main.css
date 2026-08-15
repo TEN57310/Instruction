@@ -1,0 +1,53 @@
+body { --color-sidebar-link-text--top-level: #2980B9; } /* Sidebar */
+.toctree-wrapper a.reference { color: #2980B9; } /* Main Content */
+
+h2 { font-size: 1.75em; } /* Heading */
+
+/* Comment.Single & Literal.String.Doc */
+.highlight .c1, .highlight .sd { font-style: normal !important; }
+
+/* Inline Code */
+code.literal,
+p code.literal {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 85%;
+  color: #9370DB;
+  cursor: pointer;
+}
+
+/* Dark mode */
+body[data-theme="dark"] code.literal,
+body[data-theme="dark"] p code.literal {
+  color: #87CEEB;
+}
+
+/* Auto mode + system dark */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) code.literal,
+  body:not([data-theme="light"]) p code.literal {
+    color: #87CEEB;
+  }
+}
+
+/* Copy Toast */
+#copy-toast {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background-color: #333;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-size: 14px;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+#copy-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}

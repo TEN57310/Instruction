@@ -1,0 +1,26 @@
+name: Build HTML
+
+on: push
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install -r requirements.txt
+      - run: sphinx-build docs _build/html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_build/html'
+      - uses: actions/deploy-pages@v4
