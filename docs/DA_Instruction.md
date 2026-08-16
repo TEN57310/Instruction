@@ -209,6 +209,11 @@ cp -rd WRF_P *_case
 cd *_case
 ```
 
+#### 同化试验案例快速新建复制
+```bash
+cp -rd ../fusion_case_0.001/!(wrfout*|auxhist*) . #以 fusion_case 为例
+```
+
 #### 将拼接后的wrffdda文件软链接至namelist同级目录
 
 ```bash
